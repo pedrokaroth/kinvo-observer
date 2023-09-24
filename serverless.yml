@@ -1,0 +1,17 @@
+org: pedrokaroth
+app: kinvo-observer
+service: kinvo-observer
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  environment:
+    SQS_QUEUE: https://sqs.us-east-1.amazonaws.com/961311579452/resource-processor
+    KINVO_AUTH: ${ssm:KINVO_AUTH}
+
+functions:
+  UpdatePortfolioAssets:
+    handler: index.run
+    events:
+      - schedule: cron(0 10-17 ? * MON-FRI *)
