@@ -18,5 +18,5 @@ provider:
 functions:
   UpdatePortfolioAssets:
     handler: index.run
-    events:
-      - schedule: cron(0 10-17 ? * MON-FRI *)
+    # events:
+    #   - schedule: cron(0 10-17 ? * MON-FRI *)
